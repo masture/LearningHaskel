@@ -35,3 +35,48 @@ intreverse n
 power :: Int -> Int -> Int
 power m 0 = 1
 power m n = m * (power m (n-1))
+
+testF :: Int -> Int -> Int -> Bool
+testF x y z = not (x < y) == (y < z || z > 0)
+
+
+assign4f :: Int -> Int
+assign4f 0 = 1
+assign4f n = assign4g n n 
+
+assign4g :: Int -> Int -> Int
+assign4g n 0 = 1
+assign4g n i = assign4g n (i-1) + assign4h (i-1) (n+1)
+
+assign4h :: Int -> Int -> Int
+assign4h 0 n = 1
+assign4h i n = assign4h (i-1) (n-1) + assign4h (i-1)(n+1)
+
+assign5f :: Int -> Int
+assign5f n = assign5g n n
+
+assign5g :: Int -> Int -> Int
+assign5g n a 
+    | n == 0      = a
+    | otherwise = assign5g q (10*a + r)
+        where 
+            q = div n 10
+            r = mod n 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
